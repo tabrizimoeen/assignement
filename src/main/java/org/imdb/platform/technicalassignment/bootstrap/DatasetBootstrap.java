@@ -2,6 +2,7 @@ package org.imdb.platform.technicalassignment.bootstrap;
 
 
 import jakarta.annotation.PostConstruct;
+import org.imdb.platform.technicalassignment.service.loader.*;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.Paths;

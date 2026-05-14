@@ -1,11 +1,11 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 
+import org.imdb.platform.technicalassignment.component.FastTsvParser;
+import org.imdb.platform.technicalassignment.component.StringPool;
+import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.model.Title;
 import org.springframework.stereotype.Component;
-import org.technical.assignment.component.FastTsvParser;
-import org.technical.assignment.component.StringPool;
-import org.technical.assignment.index.store.IndexStore;
-import org.technical.assignment.model.Title;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
