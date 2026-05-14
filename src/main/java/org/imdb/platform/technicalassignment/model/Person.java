@@ -2,7 +2,7 @@ package org.imdb.platform.technicalassignment.model;
 
 
 import lombok.Data;
-import org.technical.assignment.component.enums.LifeStatus;
+import org.imdb.platform.technicalassignment.model.enums.LifeStatus;
 
 @Data
 public class Person {

@@ -3,6 +3,7 @@ package org.imdb.platform.technicalassignment.service.loader;
 
 import org.imdb.platform.technicalassignment.component.FastTsvParser;
 import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.model.enums.LifeStatus;
 import org.springframework.stereotype.Component;
 
 import java.nio.file.Path;
