@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 import org.imdb.platform.technicalassignment.component.FastTsvParser;
-import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
@@ -12,9 +12,9 @@ import java.util.Set;
 @Component
 public class CrewLoader extends BaseLoader {
 
-    private final IndexStore store;
+    private final IndexStorage store;
 
-    public CrewLoader(IndexStore store) {
+    public CrewLoader(IndexStorage store) {
         this.store = store;
     }
 

@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.imdb.platform.technicalassignment.model.dto.TitleResponse;
+import org.imdb.platform.technicalassignment.model.dto.ServiceResponse;
 import org.imdb.platform.technicalassignment.service.ImdbService;
 import org.imdb.platform.technicalassignment.util.PaginationUtils;
 import org.springframework.data.domain.Page;
@@ -24,15 +24,15 @@ public class ImdbController {
     private final ImdbService service;
 
     @GetMapping("/same-director-writer")
-    public Page<TitleResponse>
+    public Page<ServiceResponse>
     sameDirectorWriterAlive(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "20") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        List<TitleResponse> titleResponses= service.sameDirectorWriterAlive();
+        List<ServiceResponse> titleResponses= service.sameDirectorWriterAlive();
         return PaginationUtils.paginate(titleResponses,pageable);
     }
 
     @GetMapping("/common-titles")
-    public List<TitleResponse>
+    public List<ServiceResponse>
     commonTitles(
             @RequestParam String actor1,
             @RequestParam String actor2
@@ -45,7 +45,7 @@ public class ImdbController {
     }
 
     @GetMapping("/best-titles")
-    public Map<Short, TitleResponse>
+    public Map<Short, ServiceResponse>
     bestTitles(
             @RequestParam String genre
     ) {

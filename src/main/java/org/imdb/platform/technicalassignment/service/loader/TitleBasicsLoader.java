@@ -3,7 +3,7 @@ package org.imdb.platform.technicalassignment.service.loader;
 
 import org.imdb.platform.technicalassignment.component.FastTsvParser;
 import org.imdb.platform.technicalassignment.component.StringPool;
-import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.Title;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +14,9 @@ import java.util.HashMap;
 @Component
 public class TitleBasicsLoader extends BaseLoader {
 
-    private final IndexStore store;
+    private final IndexStorage store;
 
-    public TitleBasicsLoader(IndexStore store) {
+    public TitleBasicsLoader(IndexStorage store) {
         this.store = store;
     }
 

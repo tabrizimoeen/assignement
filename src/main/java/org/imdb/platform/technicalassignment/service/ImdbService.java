@@ -1,10 +1,10 @@
 package org.imdb.platform.technicalassignment.service;
 
 import org.imdb.platform.technicalassignment.component.ScoreCalculator;
-import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.Rating;
 import org.imdb.platform.technicalassignment.model.Title;
-import org.imdb.platform.technicalassignment.model.dto.TitleResponse;
+import org.imdb.platform.technicalassignment.model.dto.ServiceResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,17 +12,16 @@ import java.util.*;
 @Service
 public class ImdbService {
 
-    private final IndexStore store;
+    private final IndexStorage store;
 
-    public ImdbService(IndexStore store) {
+    public ImdbService(IndexStorage store) {
         this.store = store;
     }
 
-    // requirement 2
-    public List<TitleResponse>
+    public List<ServiceResponse>
     sameDirectorWriterAlive() {
 
-        List<TitleResponse> result =
+        List<ServiceResponse> result =
                 new ArrayList<>();
 
         for (String titleId :
@@ -55,7 +54,7 @@ public class ImdbService {
                     continue;
                 }
                 result.add(
-                        new TitleResponse(
+                        new ServiceResponse(
                                 title.getId(),
                                 title.getTitle(),
                                 title.getYear()
@@ -66,8 +65,8 @@ public class ImdbService {
         return result;
     }
 
-    // requirement 3
-    public List<TitleResponse>
+
+    public List<ServiceResponse>
     commonTitles(
             String actor1,
             String actor2
@@ -85,14 +84,13 @@ public class ImdbService {
                         Collections.emptySet()
                 );
 
-        // smaller set optimization
         Set<String> smaller =
                 a.size() < b.size() ? a : b;
 
         Set<String> larger =
                 a.size() < b.size() ? b : a;
 
-        List<TitleResponse> result =
+        List<ServiceResponse> result =
                 new ArrayList<>();
 
         for (String titleId : smaller) {
@@ -109,7 +107,7 @@ public class ImdbService {
             }
 
             result.add(
-                    new TitleResponse(
+                    new ServiceResponse(
                             title.getId(),
                             title.getTitle(),
                             title.getYear()
@@ -120,8 +118,7 @@ public class ImdbService {
         return result;
     }
 
-    // requirement 4
-    public Map<Short, TitleResponse>
+    public Map<Short, ServiceResponse>
     bestTitlesPerYear(String genre) {
 
         Map<Short, List<String>> byYear =
@@ -130,7 +127,7 @@ public class ImdbService {
                         Collections.emptyMap()
                 );
 
-        Map<Short, TitleResponse> result =
+        Map<Short, ServiceResponse> result =
                 new TreeMap<>();
 
         for (Map.Entry<Short, List<String>> entry
@@ -174,7 +171,7 @@ public class ImdbService {
 
                 result.put(
                         year,
-                        new TitleResponse(
+                        new ServiceResponse(
                                 bestTitle.getId(),
                                 bestTitle.getTitle(),
                                 bestTitle.getYear()

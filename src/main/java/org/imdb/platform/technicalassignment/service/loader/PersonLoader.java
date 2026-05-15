@@ -2,7 +2,7 @@ package org.imdb.platform.technicalassignment.service.loader;
 
 
 import org.imdb.platform.technicalassignment.component.FastTsvParser;
-import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.enums.LifeStatus;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +10,9 @@ import java.io.InputStream;
 
 @Component
 public class PersonLoader extends BaseLoader {
-    private final IndexStore store;
+    private final IndexStorage store;
 
-    public PersonLoader(IndexStore store) {
+    public PersonLoader(IndexStorage store) {
         this.store = store;
     }
 

@@ -2,7 +2,7 @@ package org.imdb.platform.technicalassignment.service.loader;
 
 
 import org.imdb.platform.technicalassignment.component.FastTsvParser;
-import org.imdb.platform.technicalassignment.index.IndexStore;
+import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.Rating;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +11,9 @@ import java.io.InputStream;
 @Component
 public class RatingsLoader extends BaseLoader {
 
-    private final IndexStore store;
+    private final IndexStorage store;
 
-    public RatingsLoader(IndexStore store) {
+    public RatingsLoader(IndexStorage store) {
         this.store = store;
     }
 
