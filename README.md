@@ -12,7 +12,7 @@ The main focus of the implementation is:
 - Memory-conscious design
 - Clean architecture
 - Fast query execution using precomputed indexes
-- Streaming ingestion of large datasets
+- Streaming  large datasets
 
 ---
 
