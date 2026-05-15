@@ -1,7 +1,8 @@
 package org.imdb.platform.technicalassignment.component;
 
 public class TsvFileParser {
-    private TsvFileParser() {}
+    private TsvFileParser() {
+    }
 
     public static String column(
             String line,

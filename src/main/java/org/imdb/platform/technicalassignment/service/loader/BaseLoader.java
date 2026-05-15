@@ -3,8 +3,6 @@ package org.imdb.platform.technicalassignment.service.loader;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.function.Consumer;
 import java.util.zip.GZIPInputStream;
 
@@ -12,7 +10,7 @@ public abstract class BaseLoader {
 
 
     protected void read(
-           InputStream inputStream,
+            InputStream inputStream,
             Consumer<String> consumer
     ) {
 

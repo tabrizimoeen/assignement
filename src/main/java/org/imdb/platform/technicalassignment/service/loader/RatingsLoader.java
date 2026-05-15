@@ -17,7 +17,7 @@ public class RatingsLoader extends BaseLoader {
         this.store = store;
     }
 
-    public void load(InputStream  inputStream) {
+    public void load(InputStream inputStream) {
 
         read(inputStream, line -> {
 

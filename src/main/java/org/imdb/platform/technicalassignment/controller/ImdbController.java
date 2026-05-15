@@ -20,15 +20,15 @@ public class ImdbController {
 
     private final ImdbService service;
 
-    @GetMapping("/same-director-writer")
+    @GetMapping("v1/same-alive-director-writer")
     public Page<ServiceResponse>
-    sameDirectorWriterAlive(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "20") int size) {
+    sameDirectorWriterAlive(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "20") int size) {
         Pageable pageable = PageRequest.of(page, size);
-        List<ServiceResponse> titleResponses= service.sameDirectorWriterAlive();
-        return PaginationUtils.paginate(titleResponses,pageable);
+        List<ServiceResponse> titleResponses = service.sameDirectorWriterAlive();
+        return PaginationUtils.paginate(titleResponses, pageable);
     }
 
-    @GetMapping("/common-titles")
+    @GetMapping("v1/common-titles")
     public List<ServiceResponse>
     commonTitles(
             @RequestParam String actor1,
@@ -41,7 +41,7 @@ public class ImdbController {
         );
     }
 
-    @GetMapping("/genre/{genre}/best-titles")
+    @GetMapping("v1/genre/{genre}/best-titles")
     public Map<Short, ServiceResponse>
     bestTitles(
             @PathVariable("genre") String genre

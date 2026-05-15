@@ -7,7 +7,8 @@ public class StringPool {
     private static final ConcurrentHashMap<String, String>
             pool = new ConcurrentHashMap<>();
 
-    private StringPool() {}
+    private StringPool() {
+    }
 
     public static String pool(String value) {
 

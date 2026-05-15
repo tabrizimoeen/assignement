@@ -3,7 +3,8 @@ package org.imdb.platform.technicalassignment.component;
 
 public final class ScoreCalculator {
 
-    private ScoreCalculator() {}
+    private ScoreCalculator() {
+    }
 
     public static double calculate(
             float rating,

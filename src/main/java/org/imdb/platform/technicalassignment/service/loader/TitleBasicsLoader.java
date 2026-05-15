@@ -27,7 +27,7 @@ public class TitleBasicsLoader extends BaseLoader {
             String type =
                     TsvFileParser.column(line, 1);
 
-            if (!"movie".equals(type) &&  !"short".equals(type)) {
+            if (!"movie".equals(type) && !"short".equals(type)) {
                 return;
             }
 

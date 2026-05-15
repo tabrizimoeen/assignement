@@ -30,18 +30,19 @@ public class PersonLoader extends BaseLoader {
                     TsvFileParser.column(line, 3);
 
 
-           LifeStatus lifeStatus= resolveLifeStatus(birthYear,deathYear);
-           if(lifeStatus == LifeStatus.ALIVE){
-               store.alivePeople.add(id);
-           }
+            LifeStatus lifeStatus = resolveLifeStatus(birthYear, deathYear);
+            if (lifeStatus == LifeStatus.ALIVE) {
+                store.alivePeople.add(id);
+            }
         });
     }
+
     private LifeStatus resolveLifeStatus(String birthYear, String deathYear) {
 
-        if(!"\\N".equals(deathYear)){
+        if (!"\\N".equals(deathYear)) {
             return LifeStatus.DEAD;
         }
-        if(!"\\N".equals(birthYear)){
+        if (!"\\N".equals(birthYear)) {
             return LifeStatus.ALIVE;
         }
         return LifeStatus.UNKNOWN;
