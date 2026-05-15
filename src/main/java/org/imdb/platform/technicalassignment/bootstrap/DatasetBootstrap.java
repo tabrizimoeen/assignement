@@ -3,8 +3,10 @@ package org.imdb.platform.technicalassignment.bootstrap;
 
 import jakarta.annotation.PostConstruct;
 import org.imdb.platform.technicalassignment.service.loader.*;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 @Component
@@ -36,28 +38,34 @@ public class DatasetBootstrap {
     }
 
     @PostConstruct
-    public void init() {
+    public void init() throws IOException {
 
         long start = System.currentTimeMillis();
+        //TODO should put the file path in th config and read files from specified directory. it should not be hardcoded like this
+        ClassPathResource resource = new ClassPathResource("dataset/title.basics.tsv.gz");
 
         basicsLoader.load(
-                Paths.get("/home/moeen/dataset/title.basics.tsv.gz")
+                resource.getInputStream()
         );
-
+        resource = new ClassPathResource("dataset/title.ratings.tsv.gz");
         ratingsLoader.load(
-                Paths.get("/home/moeen/dataset/title.ratings.tsv.gz")
+                resource.getInputStream()
+
         );
+        resource = new ClassPathResource("dataset/title.crew.tsv.gz");
 
         crewLoader.load(
-                Paths.get("/home/moeen/dataset/title.crew.tsv.gz")
+                resource.getInputStream()
         );
+        resource = new ClassPathResource("dataset/title.principals.tsv.gz");
 
         principalsLoader.load(
-                Paths.get("/home/moeen/dataset/title.principals.tsv.gz")
+                resource.getInputStream()
         );
+        resource = new ClassPathResource("dataset/name.basics.tsv.gz");
 
         personLoader.load(
-                Paths.get("/home/moeen/dataset/name.basics.tsv.gz")
+                resource.getInputStream()
         );
 
         System.out.println(

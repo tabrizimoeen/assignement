@@ -6,7 +6,7 @@ import org.imdb.platform.technicalassignment.index.IndexStore;
 import org.imdb.platform.technicalassignment.model.enums.LifeStatus;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.Path;
+import java.io.InputStream;
 
 @Component
 public class PersonLoader extends BaseLoader {
@@ -16,9 +16,9 @@ public class PersonLoader extends BaseLoader {
         this.store = store;
     }
 
-    public void load(Path path) {
+    public void load(InputStream inputStream) {
 
-        read(path, line -> {
+        read(inputStream, line -> {
 
             String id =
                     FastTsvParser.column(line, 0);

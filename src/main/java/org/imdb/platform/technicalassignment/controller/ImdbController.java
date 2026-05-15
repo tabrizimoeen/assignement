@@ -2,7 +2,7 @@ package org.imdb.platform.technicalassignment.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.imdb.platform.technicalassignment.model.dto.TitleResponse;
-import org.imdb.platform.technicalassignment.service.ImdbQueryService;
+import org.imdb.platform.technicalassignment.service.ImdbService;
 import org.imdb.platform.technicalassignment.util.PaginationUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +21,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ImdbController {
 
-    private final ImdbQueryService service;
+    private final ImdbService service;
 
     @GetMapping("/same-director-writer")
     public Page<TitleResponse>

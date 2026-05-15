@@ -5,7 +5,7 @@ import org.imdb.platform.technicalassignment.component.FastTsvParser;
 import org.imdb.platform.technicalassignment.index.IndexStore;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.Path;
+import java.io.InputStream;
 import java.util.HashSet;
 
 @Component
@@ -16,9 +16,9 @@ public class PrincipalsLoader extends BaseLoader {
         this.store = store;
     }
 
-    public void load(Path path) {
+    public void load(InputStream inputStream) {
 
-        read(path, line -> {
+        read(inputStream, line -> {
 
             String category =
                     FastTsvParser.column(line, 3);

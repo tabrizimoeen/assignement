@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class ImdbQueryService {
+public class ImdbService {
 
     private final IndexStore store;
 
-    public ImdbQueryService(IndexStore store) {
+    public ImdbService(IndexStore store) {
         this.store = store;
     }
 

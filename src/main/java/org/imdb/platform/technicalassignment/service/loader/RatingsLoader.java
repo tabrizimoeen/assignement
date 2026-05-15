@@ -6,7 +6,7 @@ import org.imdb.platform.technicalassignment.index.IndexStore;
 import org.imdb.platform.technicalassignment.model.Rating;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.Path;
+import java.io.InputStream;
 
 @Component
 public class RatingsLoader extends BaseLoader {
@@ -17,9 +17,9 @@ public class RatingsLoader extends BaseLoader {
         this.store = store;
     }
 
-    public void load(Path path) {
+    public void load(InputStream  inputStream) {
 
-        read(path, line -> {
+        read(inputStream, line -> {
 
             String titleId =
                     FastTsvParser.column(line, 0);

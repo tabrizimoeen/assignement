@@ -1,6 +1,7 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,7 +12,7 @@ public abstract class BaseLoader {
 
 
     protected void read(
-            Path path,
+           InputStream inputStream,
             Consumer<String> consumer
     ) {
 
@@ -20,7 +21,7 @@ public abstract class BaseLoader {
                         new BufferedReader(
                                 new InputStreamReader(
                                         new GZIPInputStream(
-                                                Files.newInputStream(path)
+                                                inputStream
                                         )
                                 ),
                                 1024 * 1024

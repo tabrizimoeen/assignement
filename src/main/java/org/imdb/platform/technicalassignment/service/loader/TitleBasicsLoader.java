@@ -7,7 +7,7 @@ import org.imdb.platform.technicalassignment.index.IndexStore;
 import org.imdb.platform.technicalassignment.model.Title;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.Path;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,9 +20,9 @@ public class TitleBasicsLoader extends BaseLoader {
         this.store = store;
     }
 
-    public void load(Path path) {
+    public void load(InputStream inputStream) {
 
-        read(path, line -> {
+        read(inputStream, line -> {
 
             String type =
                     FastTsvParser.column(line, 1);
