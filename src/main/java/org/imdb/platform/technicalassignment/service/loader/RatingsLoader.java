@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 
-import org.imdb.platform.technicalassignment.component.FastTsvParser;
+import org.imdb.platform.technicalassignment.component.TsvFileParser;
 import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.Rating;
 import org.springframework.stereotype.Component;
@@ -22,13 +22,13 @@ public class RatingsLoader extends BaseLoader {
         read(inputStream, line -> {
 
             String titleId =
-                    FastTsvParser.column(line, 0);
+                    TsvFileParser.column(line, 0);
 
             String ratingStr =
-                    FastTsvParser.column(line, 1);
+                    TsvFileParser.column(line, 1);
 
             String votesStr =
-                    FastTsvParser.column(line, 2);
+                    TsvFileParser.column(line, 2);
 
             float rating;
             int votes;

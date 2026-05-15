@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 
-import org.imdb.platform.technicalassignment.component.FastTsvParser;
+import org.imdb.platform.technicalassignment.component.TsvFileParser;
 import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.enums.LifeStatus;
 import org.springframework.stereotype.Component;
@@ -21,13 +21,13 @@ public class PersonLoader extends BaseLoader {
         read(inputStream, line -> {
 
             String id =
-                    FastTsvParser.column(line, 0);
+                    TsvFileParser.column(line, 0);
 
             String birthYear =
-                    FastTsvParser.column(line, 2);
+                    TsvFileParser.column(line, 2);
 
             String deathYear =
-                    FastTsvParser.column(line, 3);
+                    TsvFileParser.column(line, 3);
 
 
            LifeStatus lifeStatus= resolveLifeStatus(birthYear,deathYear);

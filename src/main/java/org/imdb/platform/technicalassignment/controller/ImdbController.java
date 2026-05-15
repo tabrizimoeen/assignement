@@ -7,10 +7,7 @@ import org.imdb.platform.technicalassignment.util.PaginationUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -44,10 +41,10 @@ public class ImdbController {
         );
     }
 
-    @GetMapping("/best-titles")
+    @GetMapping("/genre/{genre}/best-titles")
     public Map<Short, ServiceResponse>
     bestTitles(
-            @RequestParam String genre
+            @PathVariable("genre") String genre
     ) {
 
         return service.bestTitlesPerYear(

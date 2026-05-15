@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.component;
 
-public class FastTsvParser {
-    private FastTsvParser() {}
+public class TsvFileParser {
+    private TsvFileParser() {}
 
     public static String column(
             String line,

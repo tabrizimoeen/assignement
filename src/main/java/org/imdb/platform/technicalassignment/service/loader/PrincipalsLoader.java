@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 
-import org.imdb.platform.technicalassignment.component.FastTsvParser;
+import org.imdb.platform.technicalassignment.component.TsvFileParser;
 import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +21,7 @@ public class PrincipalsLoader extends BaseLoader {
         read(inputStream, line -> {
 
             String category =
-                    FastTsvParser.column(line, 3);
+                    TsvFileParser.column(line, 3);
 
             if (!"actor".equals(category)
                     && !"actress".equals(category)) {
@@ -30,14 +30,14 @@ public class PrincipalsLoader extends BaseLoader {
             }
 
             String titleId =
-                    FastTsvParser.column(line, 0);
+                    TsvFileParser.column(line, 0);
 
             if (!store.validTitles.contains(titleId)) {
                 return;
             }
 
             String actorId =
-                    FastTsvParser.column(line, 2);
+                    TsvFileParser.column(line, 2);
 
             store.actorToTitles
                     .computeIfAbsent(

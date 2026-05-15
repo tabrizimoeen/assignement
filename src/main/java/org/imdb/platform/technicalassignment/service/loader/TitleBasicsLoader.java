@@ -1,7 +1,7 @@
 package org.imdb.platform.technicalassignment.service.loader;
 
 
-import org.imdb.platform.technicalassignment.component.FastTsvParser;
+import org.imdb.platform.technicalassignment.component.TsvFileParser;
 import org.imdb.platform.technicalassignment.component.StringPool;
 import org.imdb.platform.technicalassignment.index.IndexStorage;
 import org.imdb.platform.technicalassignment.model.Title;
@@ -25,24 +25,24 @@ public class TitleBasicsLoader extends BaseLoader {
         read(inputStream, line -> {
 
             String type =
-                    FastTsvParser.column(line, 1);
+                    TsvFileParser.column(line, 1);
 
             if (!"movie".equals(type) &&  !"short".equals(type)) {
                 return;
             }
 
             String id =
-                    FastTsvParser.column(line, 0);
+                    TsvFileParser.column(line, 0);
 
             store.validTitles.add(id);
 
             String title =
                     StringPool.pool(
-                            FastTsvParser.column(line, 2)
+                            TsvFileParser.column(line, 2)
                     );
 
             String yearStr =
-                    FastTsvParser.column(line, 5);
+                    TsvFileParser.column(line, 5);
 
             short year;
 
@@ -64,7 +64,7 @@ public class TitleBasicsLoader extends BaseLoader {
             );
 
             String genres =
-                    FastTsvParser.column(line, 8);
+                    TsvFileParser.column(line, 8);
 
             if (!"\\N".equals(genres)) {
 
