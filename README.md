@@ -112,7 +112,7 @@ git clone <repository-url>
 
 Put all ".tsv.gz" files inside:
 
-data/
+dataset/
 
 Example:
 
@@ -158,19 +158,6 @@ The application uses the following logic:
 
 Only persons with ALIVE status are included in the "same director and writer" endpoint.
 
----
-
-Testing
-
-The project includes:
-
-
-Focus areas:
-
-- edge cases
-- null handling
-- query correctness
-- index integrity
 
 ---
 
@@ -185,8 +172,6 @@ Given more time, the following improvements could be implemented:
 - Custom high-performance TSV parser
 - Memory optimization
 
-ing integer ID mapping
-
 ---
 
 Notes
@@ -198,6 +183,6 @@ This implementation intentionally focuses on:
 - clean architecture
 
 
-increase java heap at run time if it is needed.
+be carefule to increase java heap at run time if it is needed.
 
 I limited some result because I have  not enough Ram capacity on my old system. 
